@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  elysia-landing:
+  elysiavernight-journal:
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,11 +10,10 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      # Using your new domain here!
-      - "traefik.http.routers.elysia-landing.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.elysia-landing.entrypoints=websecure"
-      - "traefik.http.routers.elysia-landing.tls.certresolver=myresolver"
-      - "traefik.http.services.elysia-landing.loadbalancer.server.port=7000"
+      - "traefik.http.routers.journal-backend.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.journal-backend.entrypoints=websecure"
+      - "traefik.http.routers.journal-backend.tls.certresolver=myresolver"
+      - "traefik.http.services.journal-backend.loadbalancer.server.port=7000"
     networks:
       - elysia-network
 
