@@ -15,7 +15,6 @@
     "jwt": "^0.2.0"
   },
   "devDependencies": {
-    "better-sqlite3": "^12.8.0",
     "bun-types": "latest",
     "drizzle-kit": "^0.31.10"
   },
