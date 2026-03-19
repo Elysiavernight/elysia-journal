@@ -1,0 +1,23 @@
+{
+  "name": "elysia-backend",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.1",
+    "@elysiajs/jwt": "^1.4.1",
+    "@elysiajs/swagger": "^1.3.1",
+    "drizzle-orm": "^0.45.1",
+    "elysia": "latest",
+    "elysia-rate-limit": "^4.5.1",
+    "jwt": "^0.2.0"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^12.8.0",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.31.10"
+  },
+  "module": "src/index.js"
+}

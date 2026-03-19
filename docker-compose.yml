@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  elysia-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elysivernight-journal:latest
+    container_name: elysiavernight-journal
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      # Using your new domain here!
+      - "traefik.http.routers.elysia-landing.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.elysia-landing.entrypoints=websecure"
+      - "traefik.http.routers.elysia-landing.tls.certresolver=myresolver"
+      # Nginx in the Dockerfile serves on port 80
+      - "traefik.http.services.elysia-landing.loadbalancer.server.port=80"
+    networks:
+      - elysia-network
+
+networks:
+  elysia-network:
+    external: true
